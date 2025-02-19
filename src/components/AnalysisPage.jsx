@@ -182,7 +182,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
       </h2>
 
       {/* 1. Profit and Loss Summary */}
-      <div className="profit-loss-summary mb-8 p-4 bg-gray-800 rounded shadow">
+      <div className="profit-loss-summary mb-8 p-4 bg-gray-1000 rounded shadow">
         <h3 className="text-2xl text-green-300 mb-2">
           Profit and Loss Summary
         </h3>

@@ -59,7 +59,11 @@ function Upload({ setAnalysisData }) {
     <div className="upload-container">
       <h2>Upload Financial Report</h2>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload} disabled={uploading}>
+      <button 
+        onClick={handleUpload} 
+        disabled={uploading}
+        className="px-6 py-3 mt-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+      >
         {uploading ? "Uploading..." : "Analyze Report"}
       </button>
       {error && <p className="error">{error}</p>}
@@ -68,6 +72,7 @@ function Upload({ setAnalysisData }) {
 }
 
 export default Upload;
+
 
 
 

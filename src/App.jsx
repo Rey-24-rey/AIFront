@@ -24,8 +24,8 @@ function App() {
               <strong>Excel Format Requirements:</strong> Your file should contain:
             </p>
             <ul className="list-disc list-inside text-yellow-300 mt-4">
-              <p><strong>Product:</strong> Name or identifier</p>
-              <p><strong>Date:</strong> Sale date (YYYY-MM-DD)</p>
+              <p><strong>Product:</strong> Product Name</p>
+              <p><strong>Date:</strong> Sale date (YYYY-MM-DD)Daily, Weekly, Months,Years</p>
               <p><strong>Sales:</strong> Sales value</p>
               <p><strong>cogs:</strong> Cost of goods sold</p>
             </ul>
