@@ -37,24 +37,25 @@ const FinancialAnalysis = () => {
   const [searchDate, setSearchDate] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
-  // Simulated local data fetching
+  // === LIVE DATA FETCHING ===
   useEffect(() => {
-    setTimeout(() => {
-      const mockData = {
-        productSales: { headers: ["Product", "Sales"], rows: [["Item A", 5000], ["Item B", 3000]] },
-        profitLoss: { headers: ["Month", "Profit/Loss"], rows: [["Jan", 2000], ["Feb", -500]] },
-        growthAnalysis: { daily_growth: [0.02], weekly_growth: [0.05], monthly_growth: [0.1], yearly_growth: [0.2] },
-        lowSalesProducts: { headers: ["Product", "Sales"], rows: [["Item C", 100], ["Item D", 50]] },
-        cogsAnalysis: { monthly_cogs: [1500, 1800, 2000, 2500] },
-        totalSales: 100000,
-        prediction: { daily: 500, weekly: 3500, monthly: 15000, yearly: 180000 },
-        dailyDetails: [["2025-02-19", "Item A", 1000, 700, 300]]
-      };
-
-      setAnalysisData(mockData);
-      setLoading(false);
-    }, 1000); // Simulating delay
+    fetch("https://aimodel-yq14.onrender.com/analysis-data") // Adjust endpoint as needed
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch analysis data");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setAnalysisData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Error fetching data: " + err.message);
+        setLoading(false);
+      });
   }, []);
+  // === END LIVE FETCHING ===
 
   if (loading) return <p>Loading analysis data...</p>;
   if (error) return <p className="error-message">{error}</p>;
@@ -95,17 +96,38 @@ const FinancialAnalysis = () => {
   // Chart Data Definitions
   const productSalesChartData = {
     labels: productSales.rows.map(row => row[0]),
-    datasets: [{ label: "Sales Volume", data: productSales.rows.map(row => row[1]), backgroundColor: "rgba(255,99,132,0.2)", borderColor: "rgba(255,99,132,1)" }]
+    datasets: [{
+      label: "Sales Volume",
+      data: productSales.rows.map(row => row[1]),
+      backgroundColor: "rgba(255,99,132,0.2)",
+      borderColor: "rgba(255,99,132,1)"
+    }]
   };
 
   const growthChartData = {
     labels: ["Daily", "Weekly", "Monthly", "Yearly"],
-    datasets: [{ label: "Sales Growth (%)", data: [growthAnalysis.daily_growth[0] * 100, growthAnalysis.weekly_growth[0] * 100, growthAnalysis.monthly_growth[0] * 100, growthAnalysis.yearly_growth[0] * 100], borderColor: "rgba(153,102,255,1)", backgroundColor: "rgba(153,102,255,0.2)", fill: true }]
+    datasets: [{
+      label: "Sales Growth (%)",
+      data: [
+        growthAnalysis.daily_growth[0] * 100,
+        growthAnalysis.weekly_growth[0] * 100,
+        growthAnalysis.monthly_growth[0] * 100,
+        growthAnalysis.yearly_growth[0] * 100
+      ],
+      borderColor: "rgba(153,102,255,1)",
+      backgroundColor: "rgba(153,102,255,0.2)",
+      fill: true
+    }]
   };
 
   const predictionChartData = {
     labels: ["Daily", "Weekly", "Monthly", "Yearly"],
-    datasets: [{ label: "Predicted Sales (Ksh)", data: [prediction.daily, prediction.weekly, prediction.monthly, prediction.yearly], backgroundColor: "rgba(75,192,192,0.2)", borderColor: "rgba(75,192,192,1)" }]
+    datasets: [{
+      label: "Predicted Sales (Ksh)",
+      data: [prediction.daily, prediction.weekly, prediction.monthly, prediction.yearly],
+      backgroundColor: "rgba(75,192,192,0.2)",
+      borderColor: "rgba(75,192,192,1)"
+    }]
   };
 
   // COGS Search Section
@@ -160,11 +182,20 @@ const FinancialAnalysis = () => {
             {Array.isArray(searchResult) ? (
               <table className="data-table">
                 <thead>
-                  <tr><th>Date</th><th>Product</th><th>Sales</th><th>COGS</th><th>Profit</th><th>Status</th></tr>
+                  <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Sales</th>
+                    <th>COGS</th>
+                    <th>Profit</th>
+                    <th>Status</th>
+                  </tr>
                 </thead>
                 <tbody>
                   {searchResult.map((row, idx) => (
-                    <tr key={idx}>{row.map((cell, ci) => <td key={ci}>{cell}</td>)}</tr>
+                    <tr key={idx}>
+                      {row.map((cell, ci) => <td key={ci}>{cell}</td>)}
+                    </tr>
                   ))}
                 </tbody>
               </table>

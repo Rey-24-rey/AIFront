@@ -8,7 +8,7 @@ function Upload({ setAnalysisData }) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const API_BASE_URL = "http://localhost:5000";
+  const API_BASE_URL = "https://aimodel-yq14.onrender.com";
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
