@@ -12,6 +12,7 @@ import {
   PointElement,
   Filler,
 } from "chart.js";
+import Footer from "./Footer"; 
 
 // Register Chart.js components
 ChartJS.register(

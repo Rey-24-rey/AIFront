@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PayPalDonateButton from "./components/PayPalDonateButton";
 import Upload from "./components/Upload";
 import AnalysisPage from "./components/AnalysisPage";
+import Footer from "./components/Footer";  // Import the Footer component
 
 function App() {
   const [analysisData, setAnalysisData] = useState(null);
 
   return (
     <Router>
-      <div className="min-h-screen flex items-center justify-center bg-black bg-opacity-100 backdrop-blur-lg text-green-400">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-black bg-opacity-100 backdrop-blur-lg text-green-400">
         <div className="max-w-5xl p-11 text-center border border-green-500 rounded-2xl shadow-lg bg-gray-900 bg-opacity-30">
           <h1 className="text-4xl font-extrabold text-green-400 mb-6 drop-shadow-lg">
             Welcome to Financial Data Analytics
@@ -24,10 +25,10 @@ function App() {
               <strong>Excel Format Requirements:</strong> Your file should contain:
             </p>
             <ul className="list-disc list-inside text-yellow-300 mt-4">
-              <p><strong>Product:</strong> Product Name</p>
-              <p><strong>Date:</strong> Sale date (YYYY-MM-DD)Daily, Weekly, Months,Years</p>
-              <p><strong>Sales:</strong> Sales value</p>
-              <p><strong>cogs:</strong> Cost of goods sold</p>
+              <li><strong>Product:</strong> Product Name</li>
+              <li><strong>Date:</strong> Sale date (YYYY-MM-DD) Daily, Weekly, Monthly, Yearly</li>
+              <li><strong>Sales:</strong> Sales value</li>
+              <li><strong>cogs:</strong> Cost of goods sold</li>
             </ul>
           </div>
 
@@ -39,6 +40,9 @@ function App() {
 
           {/* PayPal Donate Button */}
           <PayPalDonateButton />
+
+          {/* Footer */}
+          <Footer />
         </div>
       </div>
     </Router>
