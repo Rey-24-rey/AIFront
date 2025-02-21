@@ -178,13 +178,13 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
   return (
     <div className="analysis-container p-4">
-      <h2 className="text-3xl font-bold text-green-400 mb-4">
+    <h2 className="text-3xl font-bold text-green-400 mb-4 font-[Poppins]">
         Financial Analysis Results
       </h2>
 
       {/* 1. Profit and Loss Summary */}
       <div className="profit-loss-summary mb-8 p-4 bg-gray-1000 rounded shadow">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Profit and Loss Summary
         </h3>
         <table className="min-w-full text-left text-sm">
@@ -209,7 +209,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 2. Product Sales Data */}
       <div className="product-sales-data mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Product Sales Data
         </h3>
         <div className="overflow-x-auto">
@@ -243,7 +243,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 3. Product Sales Chart */}
       <div className="product-sales-chart mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Product Sales Chart
         </h3>
         <div className="chart-container my-4">
@@ -253,7 +253,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 4. Low to High Sales Products Chart */}
       <div className="low-sales-chart mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Low to High Sales Products Chart
         </h3>
         <div className="chart-container my-4">
@@ -263,7 +263,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 5. Predicted Sales */}
       <div className="predicted-sales-chart mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Predicted Sales
         </h3>
         <div className="chart-container my-4">
@@ -273,7 +273,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 6. Sales Growth Analysis */}
       <div className="sales-growth-analysis mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Sales Growth Analysis
         </h3>
         <div className="chart-container my-4">
@@ -283,7 +283,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 7. Cost of Goods Sold (COGS) Analysis */}
       <div className="cogs-analysis-chart mb-8">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Cost of Goods Sold (COGS) Analysis
         </h3>
         <div className="chart-container my-4">
@@ -293,7 +293,7 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
 
       {/* 8. Search Daily COGS, Sales, Profit & Loss Details */}
       <div className="search-section mb-8 p-4 bg-gray-800 rounded shadow">
-        <h3 className="text-2xl text-green-300 mb-2">
+        <h3 className="text-2xl text-green-300 mb-2 font-[Poppins]">
           Search Daily COGS, Sales, Profit & Loss Details
         </h3>
         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
@@ -302,17 +302,17 @@ const AnalysisPage = ({ analysisData: initialAnalysisData }) => {
             placeholder="Enter Product Name"
             value={searchProduct}
             onChange={(e) => setSearchProduct(e.target.value)}
-            className="p-2 rounded bg-gray-700 text-green-300"
+            className="p-2 rounded bg-gray-700 text-green-300 font-[Poppins]"
           />
           <input
             type="date"
             value={searchDate}
             onChange={(e) => setSearchDate(e.target.value)}
-            className="p-2 rounded bg-gray-700 text-green-300"
+            className="p-2 rounded bg-gray-700 text-green-300 font-[Poppins]"
           />
           <button
             onClick={handleSearch}
-            className="px-4 py-2 bg-green-500 rounded hover:bg-green-600"
+            className="px-4 py-2 bg-green-500 rounded hover:bg-green-600 font-[Poppins]"
           >
             Search
           </button>

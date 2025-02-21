@@ -56,13 +56,13 @@ function Upload({ setAnalysisData }) {
   };
 
   return (
-    <div className="upload-container">
+    <div className="upload-container font-[Poppins]">
       <h2>Upload Financial Report</h2>
       <input type="file" onChange={handleFileChange} />
       <button 
         onClick={handleUpload} 
         disabled={uploading}
-        className="px-6 py-3 mt-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+        className="px-6 py-3 mt-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition font-[Poppins]"
       >
         {uploading ? "Uploading..." : "Analyze Report"}
       </button>
